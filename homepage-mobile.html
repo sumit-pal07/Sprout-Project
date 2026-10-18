@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprout 2.0 — Homepage (mobile)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="backlink" href="index.html">← Prototype hub</a>
+
+<div class="device-stage">
+  <div class="device" role="img" aria-label="Mobile homepage design mockup">
+    <div class="screen">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;">
+        <span style="display:flex;align-items:center;gap:8px;font-weight:750;color:var(--green-900);">
+          <span class="beej" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 120 120" fill="none">
+              <g class="bob">
+                <line x1="60" y1="68" x2="60" y2="50" stroke="#0e5c40" stroke-width="7" stroke-linecap="round"/>
+                <path class="leaf-l" d="M60,60 C44,60 36,48 34,36 C48,38 58,46 60,60 Z" fill="#12714f"/>
+                <path class="leaf-r" d="M60,60 C76,60 84,48 86,36 C72,38 62,46 60,60 Z" fill="#0e5c40"/>
+                <ellipse cx="60" cy="88" rx="26" ry="22" fill="#0e5c40"/>
+                <circle cx="50" cy="84" r="3.4" fill="#faf7f0"/>
+                <circle cx="70" cy="84" r="3.4" fill="#faf7f0"/>
+                <path d="M52,94 Q60,100 68,94" stroke="#faf7f0" stroke-width="3.5" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </span>
+          Sprout
+        </span>
+        <span style="font-size:0.85rem;color:var(--ink-soft);">EN | <b style="color:var(--green-700)">हिं</b></span>
+      </div>
+
+      <p class="eyebrow">For first-time investors</p>
+      <h2>Start investing with ₹100.</h2>
+      <p>Small amounts. Plain language. Every step explained before you take it.</p>
+
+      <div style="text-align:center;margin:18px 0;">
+        <span class="beej" aria-hidden="true">
+          <svg width="130" height="130" viewBox="0 0 120 120" fill="none">
+            <g class="bob">
+              <ellipse cx="60" cy="110" rx="34" ry="6" fill="#dcd5c2"/>
+              <line x1="60" y1="68" x2="60" y2="50" stroke="#0e5c40" stroke-width="5" stroke-linecap="round"/>
+              <path class="leaf-l" d="M60,60 C44,60 36,48 34,36 C48,38 58,46 60,60 Z" fill="#12714f"/>
+              <path class="leaf-r" d="M60,60 C76,60 84,48 86,36 C72,38 62,46 60,60 Z" fill="#0e5c40"/>
+              <ellipse cx="60" cy="88" rx="26" ry="22" fill="#0e5c40"/>
+              <circle cx="50" cy="84" r="3.4" fill="#faf7f0"/>
+              <circle cx="70" cy="84" r="3.4" fill="#faf7f0"/>
+              <path d="M52,94 Q60,100 68,94" stroke="#faf7f0" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </span>
+      </div>
+
+      <div class="spacer"></div>
+    </div>
+
+    <div class="device-cta">
+      <a class="btn btn-primary btn-block" href="onboarding-1.html">Start with ₹100</a>
+      <p style="text-align:center;font-size:0.85rem;margin:12px 0 0;"><a href="#how" style="text-decoration:none;">How it works ↓</a></p>
+    </div>
+
+    <!-- Compliance: risk disclaimer ≥12px, always visible -->
+    <div class="device-disclaimer">
+      <strong>Risk:</strong> Mutual fund investments are subject to market risks. Read all scheme documents carefully.
+    </div>
+  </div>
+
+  <aside class="annotation">
+    <h3>Mobile homepage — design notes</h3>
+    <ul>
+      <li><strong>One thumb, one action.</strong> A single primary CTA (52px tall) — no competing banners or pop-ups fighting a 78% bounce rate.</li>
+      <li><strong>Disclaimer is structural, not a footnote.</strong> A sticky 12px bar, always visible — compliance without scrolling.</li>
+      <li><strong>Language hint up top</strong> (EN | हिं) signals Hindi is coming; layout already leaves room for longer Devanagari strings.</li>
+      <li><strong>Beej</strong> appears at two sizes from the same SVG — brand continuity into onboarding at ~2KB cost.</li>
+      <li>No video, no ticker autoplay, no pop-ups: keeps the page far under the 1.5MB budget on 4G.</li>
+    </ul>
+  </aside>
+</div>
+
+</body>
+</html>

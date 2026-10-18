@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprout 2.0 — Onboarding 3 of 5 · Get ready for KYC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="backlink" href="index.html">← Prototype hub</a>
+
+<div class="device-stage">
+  <div class="device">
+    <div class="screen">
+      <div class="dots" aria-label="Step 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+
+      <h2>Let's get your documents ready.</h2>
+      <p>This is the step where most people get stuck — not because it's hard, but because nobody told them what to keep handy. Tick both, then we begin.</p>
+
+      <label class="check">
+        <input type="checkbox" id="c-pan">
+        <span><b>PAN card</b><small>Keep the number ready — a photo works too.</small></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" id="c-aadhaar">
+        <span><b>Aadhaar</b><small>The mobile number linked to it — you'll get an OTP there.</small></span>
+      </label>
+
+      <div style="display:flex;gap:10px;align-items:flex-start;background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:6px;">
+        <span class="beej" aria-hidden="true" style="flex:0 0 40px;">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none">
+            <g class="bob">
+              <line x1="60" y1="68" x2="60" y2="50" stroke="#0e5c40" stroke-width="7" stroke-linecap="round"/>
+              <path class="leaf-l" d="M60,60 C44,60 36,48 34,36 C48,38 58,46 60,60 Z" fill="#12714f"/>
+              <path class="leaf-r" d="M60,60 C76,60 84,48 86,36 C72,38 62,46 60,60 Z" fill="#0e5c40"/>
+              <ellipse cx="60" cy="88" rx="26" ry="22" fill="#0e5c40"/>
+              <circle cx="50" cy="84" r="3.4" fill="#faf7f0"/>
+              <circle cx="70" cy="84" r="3.4" fill="#faf7f0"/>
+              <path d="M52,94 Q60,100 68,94" stroke="#faf7f0" stroke-width="3.5" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </span>
+        <p style="margin:0;font-size:0.9rem;">"Most people finish KYC in under 2 minutes once these are ready. Take your time — I'll wait."</p>
+      </div>
+
+      <div class="spacer"></div>
+    </div>
+
+    <div class="device-cta">
+      <a class="btn btn-primary btn-block" id="cta" href="onboarding-4.html" aria-disabled="true" disabled style="pointer-events:none;">Start KYC</a>
+      <p style="text-align:center;font-size:0.85rem;margin:12px 0 0;color:var(--ink-soft);" id="hint">Tick both boxes above to continue</p>
+    </div>
+    <div class="device-disclaimer">
+      <strong>Risk:</strong> Mutual fund investments are subject to market risks. Read all scheme documents carefully.
+    </div>
+  </div>
+
+  <aside class="annotation">
+    <h3>Screen 3 — Readiness checklist · design notes</h3>
+    <ul>
+      <li><strong>Directly attacks the 62% KYC drop-off</strong> and the #1 support complaint ("didn't know I needed PAN and Aadhaar ready"). The failure happened <em>before</em> KYC — so the fix lives before KYC too.</li>
+      <li><strong>The CTA stays disabled until both boxes are ticked.</strong> A tiny commitment device: users who prepare don't abandon mid-flow.</li>
+      <li>Beej's microcopy normalises going slow ("I'll wait") — the opposite of a pressure funnel, which is exactly what a scared first-timer needs.</li>
+      <li>Checkboxes are 26px with a full-row 44px+ tap area; labels wrap generously for Hindi-length strings.</li>
+    </ul>
+  </aside>
+</div>
+
+<script>
+// Commitment device: CTA enables only when the user confirms readiness.
+const pan = document.getElementById('c-pan'),
+      aad = document.getElementById('c-aadhaar'),
+      cta = document.getElementById('cta'),
+      hint = document.getElementById('hint');
+function sync() {
+  const ok = pan.checked && aad.checked;
+  cta.toggleAttribute('disabled', !ok);
+  cta.style.pointerEvents = ok ? 'auto' : 'none';
+  cta.setAttribute('aria-disabled', String(!ok));
+  hint.textContent = ok ? 'All set — KYC takes about 2 minutes.' : 'Tick both boxes above to continue';
+}
+pan.addEventListener('change', sync); aad.addEventListener('change', sync);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprout 2.0 — Design Prototype</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hub-hero">
+    <div class="beej" role="img" aria-label="Beej, the Sprout mascot — a minimal geometric seedling">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <g class="bob">
+          <ellipse cx="60" cy="110" rx="34" ry="6" fill="#dcd5c2"/>
+          <line x1="60" y1="68" x2="60" y2="50" stroke="#0e5c40" stroke-width="5" stroke-linecap="round"/>
+          <path class="leaf-l" d="M60,60 C44,60 36,48 34,36 C48,38 58,46 60,60 Z" fill="#12714f"/>
+          <path class="leaf-r" d="M60,60 C76,60 84,48 86,36 C72,38 62,46 60,60 Z" fill="#0e5c40"/>
+          <ellipse cx="60" cy="88" rx="26" ry="22" fill="#0e5c40"/>
+          <circle cx="50" cy="84" r="3.4" fill="#faf7f0"/>
+          <circle cx="70" cy="84" r="3.4" fill="#faf7f0"/>
+          <path d="M52,94 Q60,100 68,94" stroke="#faf7f0" stroke-width="3" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <p class="eyebrow">Design prototype · Practice exercise</p>
+    <h1>Sprout 2.0</h1>
+    <p class="lead" style="max-width:640px;margin:0 auto;">
+      A homepage + first-5-screens onboarding redesign for first-time investors in India —
+      one continuous story, from the website to the first ₹100 investment.
+    </p>
+    <p style="max-width:640px;margin:16px auto 0;font-size:0.95rem;">
+      Meet <strong style="color:var(--ink)">Beej</strong> — a minimal geometric seedling.
+      Not a cartoon: a quiet companion that grows with the investor. Pure SVG + CSS, ~2&nbsp;KB.
+    </p>
+  </div>
+
+  <h2>Homepage</h2>
+  <div class="screen-grid">
+    <a class="screen-card" href="homepage-desktop.html">
+      <span class="tag">01 · Desktop</span>
+      <h3>Homepage — desktop</h3>
+      <p>Premium-minimal hero, subtle ticker, honest trust strip. Zero pop-ups. Risk disclaimer above the fold.</p>
+    </a>
+    <a class="screen-card" href="homepage-mobile.html">
+      <span class="tag">02 · Mobile</span>
+      <h3>Homepage — mobile</h3>
+      <p>Same story in a 375px frame. 44px tap targets, light weight, sticky disclaimer bar.</p>
+    </a>
+  </div>
+
+  <h2>Onboarding — one continuous journey</h2>
+  <div class="screen-grid">
+    <a class="screen-card" href="onboarding-1.html">
+      <span class="tag">Screen 1</span>
+      <h3>Welcome</h3>
+      <p>"Investing feels scary. Starting shouldn't be." Beej introduces the ₹100 start. Includes EN/हिं demo toggle.</p>
+    </a>
+    <a class="screen-card" href="onboarding-2.html">
+      <span class="tag">Screen 2</span>
+      <h3>How it works</h3>
+      <p>Three honest steps. What ₹100 does, what it doesn't. Risk disclaimer visible without scrolling.</p>
+    </a>
+    <a class="screen-card" href="onboarding-3.html">
+      <span class="tag">Screen 3</span>
+      <h3>Get ready for KYC</h3>
+      <p>PAN + Aadhaar readiness checklist <em>before</em> KYC starts — attacks the 62% drop-off and the #1 support complaint.</p>
+    </a>
+    <a class="screen-card" href="onboarding-4.html">
+      <span class="tag">Screen 4</span>
+      <h3>KYC with honest waits</h3>
+      <p>Step progress + plain-language wait states ("usually takes 20 seconds") — nobody thinks it crashed.</p>
+    </a>
+    <a class="screen-card" href="onboarding-5.html">
+      <span class="tag">Screen 5</span>
+      <h3>First investment</h3>
+      <p>₹100 default, risk disclaimer above the fold, confirm → success. Referral lives here, not on the homepage.</p>
+    </a>
+  </div>
+
+  <h2>Rationale</h2>
+  <div class="screen-grid">
+    <a class="screen-card" href="DESIGN_RATIONALE.md">
+      <span class="tag">Doc</span>
+      <h3>Design rationale</h3>
+      <p>Funnel diagnosis, stakeholder conflict resolutions, mascot reasoning, accessibility + performance notes, trade-offs.</p>
+    </a>
+  </div>
+
+  <footer>
+    <div class="wrap" style="padding:0;">
+      <p style="font-size:0.85rem;">Sprout 2.0 prototype — practice design exercise. Fictional company, fictional data. Total prototype weight kept under the 1.5&nbsp;MB page budget (see rationale).</p>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

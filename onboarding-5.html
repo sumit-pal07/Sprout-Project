@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprout 2.0 — Onboarding 5 of 5 · First investment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="backlink" href="index.html">← Prototype hub</a>
+
+<div class="device-stage">
+  <div class="device">
+    <div class="screen" id="invest-screen">
+      <div class="dots" aria-label="Step 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+
+      <h2>Your first ₹100.</h2>
+      <p>Pick an amount to begin. You can add more later — most people start small and learn.</p>
+
+      <div class="amounts" role="group" aria-label="Investment amount">
+        <button type="button" class="amount on" data-amt="100">₹100</button>
+        <button type="button" class="amount" data-amt="500">₹500</button>
+        <button type="button" class="amount" data-amt="1000">₹1,000</button>
+      </div>
+
+      <div class="card" style="padding:16px 18px;margin-bottom:8px;">
+        <h3 style="margin-bottom:4px;">Sprout Balanced Fund</h3>
+        <p style="margin:0;font-size:0.92rem;">A diversified mutual fund picked for first-time investors. <a href="#" onclick="return false;">See holdings</a></p>
+      </div>
+
+      <!-- Compliance: full risk disclaimer ≥12px, visible WITHOUT scrolling (above the CTA) -->
+      <p class="disclaimer" style="font-size:12.5px;"><strong>Risk disclaimer:</strong> Mutual fund investments are subject to market risks, including possible loss of principal. Returns are not assured. Read all scheme-related documents carefully before investing.</p>
+
+      <div class="spacer"></div>
+    </div>
+
+    <!-- Success state (hidden until confirm) -->
+    <div class="screen" id="success-screen" style="display:none;">
+      <div style="text-align:center;margin-top:24px;">
+        <span class="beej" role="img" aria-label="Beej celebrating your first investment">
+          <svg width="140" height="140" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <g class="bob">
+              <ellipse cx="60" cy="110" rx="34" ry="6" fill="#dcd5c2"/>
+              <line x1="60" y1="68" x2="60" y2="50" stroke="#0e5c40" stroke-width="5" stroke-linecap="round"/>
+              <path class="leaf-l" d="M60,52 C40,52 30,38 28,24 C46,26 58,36 60,52 Z" fill="#12714f"/>
+              <path class="leaf-r" d="M60,52 C80,52 90,38 92,24 C74,26 62,36 60,52 Z" fill="#0e5c40"/>
+              <ellipse cx="60" cy="88" rx="26" ry="22" fill="#0e5c40"/>
+              <circle cx="50" cy="84" r="3.4" fill="#faf7f0"/>
+              <circle cx="70" cy="84" r="3.4" fill="#faf7f0"/>
+              <path d="M50,92 Q60,102 70,92" stroke="#faf7f0" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </span>
+        <h2 style="margin-top:10px;">You did it. 🌱</h2>
+        <p id="s-amt">Your first ₹100 is invested in Sprout Balanced Fund.</p>
+      </div>
+
+      <!-- Referral lives HERE — after the first investment, never on the homepage -->
+      <div class="referral">
+        <h3>Plant another seed 🌱</h3>
+        <p>Invite a friend. You both get ₹100 when they make their first investment.</p>
+        <a class="btn btn-block" href="#" onclick="return false;" style="margin-top:10px;text-decoration:none;">Invite a friend</a>
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+    <div class="device-cta" id="cta-zone">
+      <a class="btn btn-primary btn-block" href="#" id="confirm-btn">Invest ₹100</a>
+      <p style="text-align:center;font-size:0.85rem;margin:12px 0 0;color:var(--ink-soft);">You can withdraw anytime · No lock-in</p>
+    </div>
+    <div class="device-disclaimer">
+      <strong>Risk:</strong> Mutual fund investments are subject to market risks. Read all scheme documents carefully.
+    </div>
+  </div>
+
+  <aside class="annotation">
+    <h3>Screen 5 — First investment · design notes</h3>
+    <ul>
+      <li><strong>₹100 is the default</strong> — the smallest commitment that still feels real. Larger options exist but aren't pushed.</li>
+      <li><strong>Disclaimer sits above the CTA, ≥12px, no scroll needed.</strong> Compliance is part of the layout, not a link to it.</li>
+      <li><strong>Referral appears only after success</strong> — asking before the first investment would tax trust at its most fragile moment. Post-success, it's a celebration mechanic.</li>
+      <li>Beej's leaves are drawn slightly larger here — the seedling "grows" with the user's progress. One SVG, endless story.</li>
+      <li>Copy check: none of the prohibited promise-words appear anywhere in user-facing copy.</li>
+    </ul>
+  </aside>
+</div>
+
+<script>
+// Amount picker + confirm → success (demo).
+const btns = document.querySelectorAll('.amount');
+const confirmBtn = document.getElementById('confirm-btn');
+let amt = '100';
+btns.forEach(b => b.addEventListener('click', () => {
+  btns.forEach(x => x.classList.remove('on')); b.classList.add('on');
+  amt = b.dataset.amt;
+  confirmBtn.textContent = 'Invest ₹' + Number(amt).toLocaleString('en-IN');
+}));
+confirmBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('s-amt').textContent =
+    'Your first ₹' + Number(amt).toLocaleString('en-IN') + ' is invested in Sprout Balanced Fund.';
+  document.getElementById('invest-screen').style.display = 'none';
+  document.getElementById('cta-zone').style.display = 'none';
+  document.getElementById('success-screen').style.display = 'flex';
+});
+</script>
+
+</body>
+</html>

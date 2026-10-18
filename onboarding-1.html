@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprout 2.0 — Onboarding 1 of 5 · Welcome</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="backlink" href="index.html">← Prototype hub</a>
+
+<div class="device-stage">
+  <div class="device">
+    <div class="screen">
+      <div class="dots" aria-label="Step 1 of 5"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+      <!-- Hindi-readiness demo: layout swaps strings without redesign -->
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btn-en" class="on" type="button">English</button>
+        <button id="btn-hi" type="button">हिंदी</button>
+      </div>
+
+      <div style="text-align:center;margin:8px 0 4px;">
+        <span class="beej" role="img" aria-label="Beej, the Sprout seedling mascot">
+          <svg width="150" height="150" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <g class="bob">
+              <ellipse cx="60" cy="110" rx="34" ry="6" fill="#dcd5c2"/>
+              <line x1="60" y1="68" x2="60" y2="50" stroke="#0e5c40" stroke-width="5" stroke-linecap="round"/>
+              <path class="leaf-l" d="M60,60 C44,60 36,48 34,36 C48,38 58,46 60,60 Z" fill="#12714f"/>
+              <path class="leaf-r" d="M60,60 C76,60 84,48 86,36 C72,38 62,46 60,60 Z" fill="#0e5c40"/>
+              <ellipse cx="60" cy="88" rx="26" ry="22" fill="#0e5c40"/>
+              <circle cx="50" cy="84" r="3.4" fill="#faf7f0"/>
+              <circle cx="70" cy="84" r="3.4" fill="#faf7f0"/>
+              <path d="M52,94 Q60,100 68,94" stroke="#faf7f0" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </span>
+      </div>
+
+      <h2 id="t-head" style="text-align:center;">Investing feels scary.<br>Starting shouldn't be.</h2>
+      <p id="t-sub" style="text-align:center;">Hi, I'm <strong style="color:var(--ink)">Beej</strong> — a tiny seed, like your first investment. I'll walk with you from ₹100 to your first confident step.</p>
+
+      <div class="spacer"></div>
+    </div>
+
+    <div class="device-cta">
+      <a class="btn btn-primary btn-block" id="t-cta" href="onboarding-2.html">Start with ₹100</a>
+      <p style="text-align:center;font-size:0.85rem;margin:12px 0 0;color:var(--ink-soft);">Takes about 5 minutes · No jargon</p>
+    </div>
+    <div class="device-disclaimer">
+      <strong>Risk:</strong> Mutual fund investments are subject to market risks. Read all scheme documents carefully.
+    </div>
+  </div>
+
+  <aside class="annotation">
+    <h3>Screen 1 — Welcome · design notes</h3>
+    <ul>
+      <li><strong>Opens with the user's own words.</strong> 65% of surveyed users said "investing feels scary" — the headline mirrors it back, then reframes. Trust starts with being heard.</li>
+      <li><strong>Beej's introduction</strong> sets the continuous story: the same seedling from the homepage now speaks. Geometric, premium — the CEO's "no cartoon" rule survives.</li>
+      <li><strong>EN/हिं toggle is a prototype of Hindi-readiness:</strong> strings swap via a dictionary; no layout change, no text baked into images, generous line lengths absorb longer Devanagari.</li>
+      <li>Single CTA, 52px tall. Disclaimer rides along in the sticky bar from screen one.</li>
+    </ul>
+  </aside>
+</div>
+
+<script>
+// Minimal string-swap demo: proves Hindi fits the same layout (no redesign needed later).
+const STR = {
+  en: {
+    head: 'Investing feels scary.<br>Starting shouldn\'t be.',
+    sub: 'Hi, I\'m <strong style="color:var(--ink)">Beej</strong> — a tiny seed, like your first investment. I\'ll walk with you from ₹100 to your first confident step.',
+    cta: 'Start with ₹100'
+  },
+  hi: {
+    head: 'निवेश डरावना लगता है।<br>शुरुआत नहीं होनी चाहिए।',
+    sub: 'नमस्ते, मैं <strong style="color:var(--ink)">बीज</strong> हूँ — आपके पहले निवेश जैसा एक छोटा-सा बीज। ₹100 से आपके पहले आत्मविश्वास भरे कदम तक मैं साथ चलूँगा।',
+    cta: '₹100 से शुरू करें'
+  }
+};
+const be = document.getElementById('btn-en'), bh = document.getElementById('btn-hi');
+function setLang(l) {
+  document.getElementById('t-head').innerHTML = STR[l].head;
+  document.getElementById('t-sub').innerHTML = STR[l].sub;
+  document.getElementById('t-cta').textContent = STR[l].cta;
+  document.documentElement.lang = (l === 'hi') ? 'hi' : 'en';
+  be.classList.toggle('on', l === 'en'); bh.classList.toggle('on', l === 'hi');
+}
+be.addEventListener('click', () => setLang('en'));
+bh.addEventListener('click', () => setLang('hi'));
+</script>
+
+</body>
+</html>
